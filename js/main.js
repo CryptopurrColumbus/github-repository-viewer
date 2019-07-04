@@ -1,11 +1,14 @@
+
+let PAGE = 1;
+
 const getUserName = () => {
   let username = document.querySelector('#username').value;
   return username;
 };
 
-function getUserdata() {
+function getUserdata(page=PAGE) {
   var username = getUserName();
-  fetch(`https://api.github.com/users/${username}/repos`)
+  fetch(`https://api.github.com/users/${username}/repos?page=${page}`)
     .then(function(response) {
       if (!response.ok) {
         throw Error(response.statusText);
@@ -97,8 +100,10 @@ function nextreq(response) {
 
 function request() {
   let nextBtn = document.querySelector('#next');
-  nextBtn.addEventListener('click', clickBtn());
+  nextBtn.addEventListener('click', clickBtn);
 }
 
 function clickBtn() {
+	PAGE += 1;
+	getUserdata();
 }
