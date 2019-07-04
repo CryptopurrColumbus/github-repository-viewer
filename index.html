@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Github user-repository finder">
+    <link rel="stylesheet" href="./css/style.css">
     <title>User Repositories</title>
 </head>
 <body>
@@ -12,7 +13,10 @@
         <input type="submit" value="Submit" onclick="getUserdata()"  >
     <!-- </form> -->
     <div id="errorBox"></div>
-    <div id="moreContent"></div>
+    <div id="moreContent">
+        <button type="submit" id="previous">Prev</button> 
+        <button type="submit" id="next">Next</button>
+    </div>
     <div id="output"></div>
     
 
