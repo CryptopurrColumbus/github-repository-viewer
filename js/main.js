@@ -1,28 +1,32 @@
-const putUsernameInReq = () => {
+const getUserName = () => {
 	let username = document.querySelector('#username').value;
 	return username;
 };
 
 function getUserdata() {
-	fetch( `https://api.github.com/users/${putUsernameInReq()}/repos `)
+	fetch(`https://api.github.com/users/${getUserName()}/repos`)
 		.then(function(response) {
-      console.log(response.headers);
-			if (!response.ok) {
+      // console.log( response.headers.get('Link'));
+      if (!response.ok) {
 				throw Error(response.statusText);
 			}
-			return response.json();
+      let a = nextreq(response);
+      console.log(a);
+		  return Promise.all([response.json(),a]);
 		})
-		.then(function(data) {
-			console.log(data);
-			clearContent();
+		.then(function([data,a]) {
+      clearContent();
+      console.log(a);
 			appendData(data);
+		   moreM(data,a);
+			
 		})
 		.catch(function(err) {
 			clearContent();
 			let errorBox = document.querySelector('#errorBox');
 			errorBox.innerHTML = err;
-    });
-    
+		});
+
 	function appendData(data) {
 		var mainContainer = document.getElementById('output');
 		var inputField = document.querySelector('#username');
@@ -39,17 +43,59 @@ function getUserdata() {
 			}<p> <p> Starred : ${data[i].stargazers_count}<p> <p>Forked : ${
 				data[i].forks
 			}<p>`;
-			console.log(output);
 
 			a += output;
-			console.log(a);
 		}
 		mainContainer.innerHTML = a;
 	}
 }
+function moreM(data,a) {
+	let more = document.querySelector('#moreContent');
+	console.log(data);
+	if (data.length < 30) {
+		console.log('hi');
+		more.innerHTML = `<h2>Showing ${
+			data.length
+		} repositories. No more repositories are available</h2>`;
+	} else {
+		console.log('heya');
+		more.innerHTML = `<h2>Showing ${
+			data.length
+    } repositories.Click next button to load more repositories</h2> <button type="submit" id="prev">Prev</button> <button type="submit" id="next">Next</button>`
+    ;
+    request(a)
+	}
+}
+
 function clearContent() {
 	var mainContainer = document.getElementById('output');
 	mainContainer.innerHTML = '';
 	let errorBox = document.querySelector('#errorBox');
 	errorBox.innerHTML = '';
 }
+function nextreq(response) {
+	console.log(response);
+  let z = response.headers.get('Link');
+  if (typeof(z) === 'string'){
+	console.log(z);
+	let fs = z.indexOf('<');
+	let fe = z.indexOf('>');
+	let ss = z.lastIndexOf('<');
+	let pe = z.lastIndexOf('>');
+	console.log(fs + 1, fe - 1, ss + 1, pe - 1);
+	let start = z.slice(fs + 1, fe);
+	let end = z.slice(ss + 1, pe);
+	console.log('start:',start);
+  console.log('end:',end);
+  console.log(start === end);
+  return [(start === end)];
+	
+}}
+
+function request() {
+    let nextBtn = document.querySelector('#next');
+    nextBtn.addEventListener('click', clickBTn());
+ }
+function clickBtn(
+  // click  next button to produce next list of repositories
+)
