@@ -51,7 +51,7 @@ function moreM(data,a) {
 function addRepoInfoHTML(data) {
   var mainContainer = document.getElementById('output');
   var inputField = document.querySelector('#username');
-  let a = `<h1>${inputField.value}: User Repositories</h1>`;
+  let a = `<h1>${inputField.value}'s Repositories</h1>`;
 
   for (var i = 0; i < data.length; i++) {
     let output = `<h1><a href=${data[i].html_url} >${
