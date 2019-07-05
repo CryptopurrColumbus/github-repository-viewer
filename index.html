@@ -1,39 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Github user-repository finder">
-    <link rel="stylesheet" href="./css/style.css">
-    <link href="images/anchor-pngrepo-com.png" rel="icon" type="image/png" sizes="48x48">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://kit.fontawesome.com/76f722e158.js"></script>
-
-    
-
-    <title>User Repositories</title>
-</head>
-<body class=" bg-light">
-    <div class="wrapper">
-    <header class="jumbotron ">
-        <h1 class="mark bg-light text-success" "> <img src="images/anchor-pngrepo-com.png"> Github Repository Resource </h1>
-    </header>
-    <!-- <form> -->
-        <input type="text" name="username" id="username" placeholder="Enter Name of github user" class ="form-control mb-4">
-        <button type="submit" class="btn-lg form-control btn-danger mb-4" onclick="getUserdata()">
-                <i class="fas fa-search"></i></i>
-            </button>
-    <!-- </form> -->
-    <div id="errorBox"></div>
-    <div id="moreContent">
-        <button type="submit" id="previous">Prev</button> 
-        <button type="submit" id="next">Next</button>
-    </div>
-    <div id="output"></div>
-    
-    </div>
-   <script src="js/main.js"></script> 
-
-   </body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Github user-repository resource">
+        <link rel="stylesheet" href="./css/style.css">
+        <link href="images/anchor.png" rel="icon" type="image/png" sizes="48x48">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://kit.fontawesome.com/76f722e158.js"></script>
+        <title>Github User Repositories</title>
+    </head>
+    <body class=" bg-light">
+        <div class="wrapper">
+            <header class="jumbotron ">
+                <h1 class="mark bg-light text-success" "> <img src="images/anchor.png"> Github Repository Resource </h1>
+            </header>
+            <input type="text" name="username" id="username" placeholder="Enter Name of github user" 
+                class ="form-control mb-4" onchange="resetPage()">
+            <button type="submit" class="btn-lg form-control btn-danger mb-4" onclick="getUserdata()">
+                <i class="fas fa-search"></i></i> </button>
+            <div id="errorBox"></div>
+            <div id="output"></div>
+            <div id="moreContent" class ="mb-4"></div>
+            <div id="buttons" class="mb-4">
+                <button type="submit" id="previous" class="carousel-control-prev-icon bg-dark mb-4"></button> 
+                <button type="submit" id="next" class="carousel-control-next-icon bg-dark mb-4"></button>
+            </div>
+            <footer>Resource for public repositories of github users</footer>
+        </div>
+        <script src="js/main.js"></script> 
+    </body>
 </html>
 
