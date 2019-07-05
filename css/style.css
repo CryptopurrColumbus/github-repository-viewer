@@ -1,7 +1,28 @@
-#next {
+
+body {
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+    
+    align-content: center;
+
+}
+.wrapper{
+    width:75%;
+    margin :auto;
+
+}
+h1 img {
+    width: 80px;
+    height: auto;
+}
+/* #output{
+    width:60%;
+    margin: auto;
+} */
+
+/* #next {
     display: none;
 }
 
 #previous {
     display: none;
-}
+} */

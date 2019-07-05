@@ -45,13 +45,13 @@ function showButtons(data) {
 		console.log(document.getElementById("previous"))
 	}
   if (data.length < 30) {
-    more.innerHTML = `<h2>Showing ${
+    more.innerHTML = `<h5>Showing <span class ="text-info"> ${
       data.length
-    } repositories. No more repositories are available</h2>`;
+    }</span> repositories. No more repositories are available.</h5>`;
   } else {
-    more.innerHTML = `<h2>Showing ${
+    more.innerHTML = `<h5>Showing <span class ="text-info">${
       data.length
-		} repositories. Click next button to load more repositories</h2>`;
+		}</span> repositories. Click the next button to load more repositories.</h5>`;
 		// show the next button
 		console.log(document.getElementById("next"));
 		// document.getElementById("next").style.display = 'inline';
@@ -62,18 +62,18 @@ function showButtons(data) {
 function appendData(data) {
   var mainContainer = document.getElementById('output');
   var inputField = document.querySelector('#username');
-  let a = `<h1>${inputField.value}'s Repositories</h1>`;
+  let a = `<h3>${inputField.value}'s Repositories</h3>`;
 
-  for (var i = 0; i < data.length; i++) {
-    let output = `<h1><a href=${data[i].html_url} >${
+  for (var i = 0; i < data.length; i++) { 
+    let output = `<div class = "mb-4 p-2  card"><h5 class="mb-4"><i class="fab fa-github"></i>&nbsp;&nbsp;&nbsp;<a  href=${data[i].html_url} >${
       data[i].name
-    }</a></h1> <h2> Description:${data[i].description}</h2><h3> Is a fork : ${
-      data[i].fork
-    } </h3> <h4> Language: ${data[i].language} <p> Watched : ${
+    }</a></h5> <h6> <i class="fas fa-eye"></i>Watched : ${
       data[i].watchers
-    }<p> <p> Starred : ${data[i].stargazers_count}<p> <p>Forked : ${
+    } &nbsp; &nbsp;   <i class="fas fa-star"></i>Starred : ${data[i].stargazers_count} &nbsp; &nbsp;   <i class="fas fa-code-branch"></i> Forked: ${
       data[i].forks
-    }<p>`;
+    }</h6><h6> Description: ${data[i].description}</h6>
+   
+    <h6> Language: ${data[i].language}</h6>  </div>`;
     a += output;
   }
   mainContainer.innerHTML = a;

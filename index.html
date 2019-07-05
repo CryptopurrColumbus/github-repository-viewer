@@ -5,12 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Github user-repository finder">
     <link rel="stylesheet" href="./css/style.css">
+    <link href="images/anchor-pngrepo-com.png" rel="icon" type="image/png" sizes="48x48">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/76f722e158.js"></script>
+
+    
+
     <title>User Repositories</title>
 </head>
-<body>
+<body class=" bg-light">
+    <div class="wrapper">
+    <header class="jumbotron ">
+        <h1 class="mark bg-light text-success" "> <img src="images/anchor-pngrepo-com.png"> Github Repository Resource </h1>
+    </header>
     <!-- <form> -->
-        <input type="text" name="username" id="username" placeholder="Enter Name of github user">
-        <input type="submit" value="Submit" onclick="getUserdata()"  >
+        <input type="text" name="username" id="username" placeholder="Enter Name of github user" class ="form-control mb-4">
+        <button type="submit" class="btn-lg form-control btn-danger mb-4" onclick="getUserdata()">
+                <i class="fas fa-search"></i></i>
+            </button>
     <!-- </form> -->
     <div id="errorBox"></div>
     <div id="moreContent">
@@ -19,8 +31,9 @@
     </div>
     <div id="output"></div>
     
-
+    </div>
    <script src="js/main.js"></script> 
+
    </body>
 </html>
 
